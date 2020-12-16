@@ -1,0 +1,283 @@
+<?php
+session_start();
+?><!doctype HTML>
+<html>
+<head> 
+    <title>Ghumo Delhi</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" shrink-to-fit="no" >
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="search.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap" rel="stylesheet"> 
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Font-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet"> 
+</head>
+<body>
+    <div style="background:transparent !important" >
+  <h1> <center>Welcome
+    <!--Username-->
+    
+    <?php
+    
+    $email=$_SESSION["emailid"];
+
+
+	$conn=mysqli_connect("localhost:3308", "root", "", "Ghumo_Delhi");
+
+	$query="SELECT * from users where Email='".$email."' ";
+    $result=mysqli_query($conn,$query) or die(mysqli_error($conn));
+ 
+    $row=mysqli_fetch_row($result);
+    echo $row[1];
+    
+?>
+      </center>
+    </h1>
+    </div>
+    <div class="tab">
+        <br>
+        <h5><b>&nbsp;&nbsp;&nbsp;DashBoard</b></h5>   
+  <button class="tablinks" onmouseover="openCity(event, 'profile')">Profile</button>
+   <button class="tablinks" onmouseover="openCity(event, 'search')">Search</button>     
+  <button class="tablinks" onmouseover="openCity(event, 'map')">Tourist Map</button>
+        <button type="submit" class="btn-btn-success" ><a href="Logout.php">Logout</a></button>
+</div>
+
+<div id="profile" class="tabcontent">
+    <table align="center" class=" table table-borderless">
+    <thead>
+      <tr>
+        <th>Name: </th>
+        <td> <?php echo $row[1]; ?></td>
+        </tr>
+        <tr>
+        <th>Email Id:</th>
+        <td> <?php echo $row[2]; ?></td>
+        </tr>
+        <tr>
+        <th>Password: </th>
+        <td> <?php echo $row[3]; ?></td>
+        </tr>
+       </thead>
+    </table>
+</div>
+
+<div id="search" class="tabcontent">
+    <br><br>
+    <form  class="form-group" action="dataretrieve.php" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+   Select Your Place:  <input type="text" class="form-control" id="search"  name="search" autofocus required><br>
+        <br>
+         <button type="submit" class="btn btn-success" > Search </button>   
+        </div>
+    </form>
+</div>
+
+
+<div id="map" class="tabcontent">
+  
+    <h1> Delhi Tourist Map</h1>
+<iframe src="https://www.google.com/maps/d/embed?mid=1FTNaZzBG31T_oX9kID41QpvE2o6du70Z" width="1350" height="350" padding-left="2px" border="none"></iframe>
+
+
+<ul style="width:30%; float: left;">
+<li>
+<img src="Images/a.png" style="height: 30px; width: 25px; display: inline;">
+ SAROJINI NAGAR
+</li>
+<li>
+<img src="Images/indiagate.gif" style="height: 30px; width: 25px; display: inline;">
+ INDIA GATE
+</li>
+<li>
+<img src="Images/qutub.gif" style="height: 30px; width: 25px; display: inline;">
+ QUTUB MINAR
+</li>
+<li>
+<img src="Images/redfort.gif" style="height: 30px; width: 25px; display: inline;">
+ RED FORT
+</li>
+<li>
+<img src="Images/akshardham.gif" style="height: 30px; width: 25px; display: inline;">
+ AKSHARDHAM TEMPLE
+</li>
+<li>
+<img src="Images/lotustemple.gif" style="height: 30px; width: 25px; display: inline;">
+ LOTUS TEMPLE
+</li>
+<li>
+<img src="Images/humayu.gif" style="height: 30px; width: 25px; display: inline;">
+HUMAYUN'S TOMB
+</li>
+<li>
+<img src="Images/banglasahib.gif" style="height: 30px; width: 25px; display: inline;">
+  GURUDRAWA SRI BANGA SAHIB
+</li>
+<li>
+<img src="Images/HAUZKHASS.gif" style="height: 30px; width: 25px; display: inline;">
+ HAUZ KHAS
+</li>
+<li>
+<img src="Images/jama.gif" style="height: 30px; width: 25px; display: inline;">
+  JAMA MASJID
+</li>
+<li>
+<img src="Images/ISKON.gif" style="height: 30px; width: 25px; display: inline;">
+ ISCON TEMPLE
+</li>
+<li>
+<img src="Images/a.png" style="height: 30px; width: 25px; display: inline;">
+ CONNAUGHT PLACE
+</li>
+<li>
+<img src="Images/lodhigarden.gif" style="height: 30px; width: 25px; display: inline;">
+LODHI GARDEN
+</li>
+<li>
+<img src="Images/AGRASEN.gif" style="height: 30px; width: 25px; display: inline;">
+ AGRASEN KI BAOLI
+</li>
+<li>
+<img src="Images/chattarpurmandir.gif" style="height: 30px; width: 25px; display: inline;">
+ CHATTARPUR TEMPLE
+</li>
+<li>
+<img src="Images/rajghat.gif" style="height: 30px; width: 25px; display: inline;">
+ RAJGHAT
+</li>
+    </ul>
+<ul style="width:30%; float: left;">
+<li>
+<img src="Images/RB.gif" style="height: 30px; width: 25px; display: inline;">
+ RASHTRAPATI BHAWAN
+</li>
+<li>
+<img src="Images/a.png" style="height: 30px; width: 25px; display: inline;">
+ CHANDINI CHOWK
+</li>
+<li>
+<img src="Images/a.png" style="height: 30px; width: 25px; display: inline;">
+ KHAN MARKET
+</li>
+<li>
+<img src="Images/nehrupark.gif" style="height: 30px; width: 25px; display: inline;">
+ NEHRU PARK
+</li>
+<li>
+<img src="Images/TEENMURTI.gif" style="height: 30px; width: 25px; display: inline;">
+ TEEN MURTI BHAWAN
+</li>
+<li>
+<img src="Images/PRAGATIMAIDAN.gif" style="height: 30px; width: 25px; display: inline;">
+ PRAGATI MAIDAN
+</li>
+<li>
+<img src="Images/a.png" style="height: 30px; width: 25px; display: inline;">
+ DILLI HAAT, INA
+</li>
+<li>
+
+<img src="Images/a.png" style="height: 30px; width: 25px; display: inline;">
+ LAJPAT NAGAR
+</li>
+    
+<li>
+<img src="Images/BIRD.gif" style="height: 30px; width: 25px; display: inline;">
+ OKHLA BIRD SANCTURY
+</li>
+<li>
+<img src="Images/ZOO.gif" style="height: 30px; width: 25px; display: inline;">
+ ZOO
+</li>
+<li>
+<img src="Images/DARGAH.gif" style="height: 30px; width: 25px; display: inline;">
+ NIZAMUDDIN DARGAH
+</li>
+<li>
+<img src="Images/a.png" style="height: 30px; width: 25px; display: inline;">
+ RAJOURI GARDEN MARKET
+</li>
+<li>
+<img src="Images/RAIL.gif" style="height: 30px; width: 25px; display: inline;">
+ RAIL MUSEUM
+</li>
+<li>
+<img src="Images/a.png" style="height: 30px; width: 25px; display: inline;">
+ SELECT CITYWALK
+</li>
+<li>
+<img src="Images/SAFDURJANG.gif" style="height: 30px; width: 25px; display: inline;">
+ SAFDURJUNG FORT
+</li>
+<li>
+<img src="Images/WOW.gif" style="height: 30px; width: 25px; display: inline;">
+ WASTE OF WONDERS PARK
+</li>
+    </ul>
+<ul style="width:30%; float: left;">
+<li>
+<img src="Images/NATIONAL.gif" style="height: 30px; width: 25px; display: inline;">
+ NATIONAL MUESUM
+</li>
+<li>
+<img src="Images/a.png" style="height: 30px; width: 25px; display: inline;">
+ SOUTH EXTENSION MAIN MARKET
+</li>
+<li>
+<img src="Images/a.png" style="height: 30px; width: 25px; display: inline;">
+ KAROL BAGH
+</li>
+<li>
+<img src="Images/KOD.gif" style="height: 30px; width: 25px; display: inline;">
+ KINGDOM OF DREAMS
+</li>
+    <li>
+    
+<img src="Images/MEHRAULI.gif" style="height: 30px; width: 25px; display: inline;">
+ MEHRAULI ARCHAELOGICAL PARK
+</li>
+<li>
+<img src="Images/a.png" style="height: 30px; width: 25px; display: inline;">
+ DILLI HAAT, PITAMPURA
+</li>
+<li>
+<img src="Images/a.png" style="height: 30px; width: 25px; display: inline;">
+ DILLI HAAT, JANAKPURI
+</li>
+
+    
+    </ul>  
+</div>
+
+<div class="clearfix"></div>
+    <script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+    
+    
+</body>
+</html> 

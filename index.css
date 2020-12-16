@@ -1,0 +1,71 @@
+body{
+	margin:0;
+	padding:0;
+	background:#fff;
+	font-family: 'Raleway',sans-serif;
+	color: #000;
+}
+.banner .navbar{
+	margin-top:4%;
+}
+.banner .navbar-brand{
+	color: #fff;
+	font-size:1.8em;
+	font-weight: 700;
+	margin-left: 10%;
+}
+.banner .nav{
+	margin-right:10%; 
+}
+.banner .nav li a{
+	color:#fff;
+	font-size: 1.2em;
+}
+.banner .info{
+	margin-top:15%;
+	transform: translateY(-15%);
+}
+.banner .info a{
+	margin-left:50%;
+	transform: translateX(-50%);
+	color: #fff;
+	background: #e91d43;
+	padding:10px 20px; 
+	font-size: 2em;
+	font-weight: 600;
+}
+.banner .info a:hover{
+	background: #e91e63;
+}
+.row h1{
+  display: block;
+  font-size: 6em;
+    background: #fff;
+    opacity: 0.8;
+  margin: 15px;
+  padding: 20px;
+  font-weight: bold;
+    z-index: 1;
+}
+p{
+    font-size: 1.5em;
+    font-weight: bold;
+    background: #fff;
+    opacity: 0.8;
+}
+#myvideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+}
+.accordion-section{
+   display:flex;
+  font-size: 0.5em;
+    background: #fff;
+    opacity: 0.8;
+  margin: 15px;
+  padding: 20px;
+    z-index: 1; 
+}
